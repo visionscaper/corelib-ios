@@ -16,7 +16,7 @@
 #import "Vi.h"
 #import "ViAPIService.h"
 
-@interface ViSimpleAPIService : Vi<ViAPIService, NSURLConnectionDataDelegate>
+@interface ViSimpleAPIService : ViAPIService, NSURLConnectionDataDelegate>
 
 -(id)initWithAPIURL:(NSString*)APIBaseURL
         APIUsername:(NSString*)username

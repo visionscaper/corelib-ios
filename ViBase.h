@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ViLogging.h"
 
 @interface ViBase : NSObject {
 

@@ -1,0 +1,6 @@
+[submodule "libs/LibComponentLogging-Core"]
+	path = libs/LibComponentLogging-Core
+	url = https://github.com/aharren/LibComponentLogging-Core.git
+[submodule "libs/LibComponentLogging-NSLog"]
+	path = libs/LibComponentLogging-NSLog
+	url = https://github.com/aharren/LibComponentLogging-NSLog.git

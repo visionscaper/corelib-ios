@@ -13,10 +13,10 @@
 //  Copyright (c) 2014 Visionscapers. All rights reserved.
 //
 
-#import "Vi.h"
+#import "ViBase.h"
 #import "ViAPIService.h"
 
-@interface ViSimpleAPIService : ViAPIService, NSURLConnectionDataDelegate>
+@interface ViSimpleAPIService : ViBase <ViAPIService, NSURLConnectionDataDelegate>
 
 -(id)initWithAPIURL:(NSString*)APIBaseURL
         APIUsername:(NSString*)username

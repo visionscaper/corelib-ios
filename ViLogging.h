@@ -21,7 +21,7 @@
 
 
 //IMPORTANT : _format, must really be a format string. Even if you don't need formating use
-// _LOG_XYZ("%@", "someting I want to log")
+// _LOG_XYZ(@"%@", @"someting I want to log")
 
 #define _LOG_CRITICAL(_format, ...) lcl_log(lcl_cViDefault, lcl_vCritical, _format, ## __VA_ARGS__)
 #define _LOG_ERROR(_format, ...)    lcl_log(lcl_cViDefault, lcl_vError, _format, ## __VA_ARGS__)

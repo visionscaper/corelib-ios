@@ -6,12 +6,12 @@
 //  Copyright (c) 2014 Visionscapers. All rights reserved.
 //
 
-#import "Vi.h"
+#import "ViBase.h"
 #import "ViController.h"
 
 @class ViController;
 
-@interface ViModel : Vi {
+@interface ViModel : ViBase {
     
     @protected
     

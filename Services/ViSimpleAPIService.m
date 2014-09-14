@@ -76,7 +76,7 @@
         message = [NSString stringWithFormat:@"API Service is invalid, will not get resource %@", resourcePath, nil];
         NSLog(@"[Error] : %@", message);
         
-        err = [Vi errorWithMessage:message];
+        err = [ViBase errorWithMessage:message];
         if (readyCb) {
             readyCb(nil, err);
             return NO;
@@ -88,7 +88,7 @@
                                               "will not get resource %@", resourcePath, nil];
         NSLog(@"[Error] : %@", message);
 
-        err = [Vi errorWithMessage:message];
+        err = [ViBase errorWithMessage:message];
         
         if (readyCb) {
             readyCb(nil, err);
@@ -100,7 +100,7 @@
         message = [NSString stringWithFormat:@"No valid resourcePath given; will not get resource", nil];
         NSLog(@"[Error] : %@", message);
 
-        err = [Vi errorWithMessage:message];
+        err = [ViBase errorWithMessage:message];
         
         if (readyCb) {
             readyCb(nil, err);
@@ -121,7 +121,7 @@
                                               "will not get resource %@", resourcePath, nil];
         NSLog(@"[Error] : %@", message);
 
-        err = [Vi errorWithMessage:message];
+        err = [ViBase errorWithMessage:message];
         if (readyCb) {
             readyCb(nil, err);
             return NO;
@@ -228,7 +228,7 @@
         message = @"No valid received data, nothing to JSON parse.";
         NSLog(@"[Error] : %@", message);
 
-        *pErr = [Vi errorWithMessage:message];
+        *pErr = [ViBase errorWithMessage:message];
         return success;
     }
     

@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "ViLogging.h"
+#import "ViShortcuts.h"
 
 @interface ViBase : NSObject {
 

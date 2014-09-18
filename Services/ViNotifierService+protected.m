@@ -8,7 +8,7 @@
 
 #import "ViNotifierService+protected.h"
 
-@implementation ViNotifierService (protected)
+@implementation ViNotifierService (Protected)
 
 -(void)_notifyListenersOf:(NSString*)notificationName withData:(id)data {
     

@@ -7,7 +7,7 @@
 //
 #import "ViNotifierService.h"
 
-@interface ViNotifierService (protected)
+@interface ViNotifierService (Protected)
 
 //notificationName must coincide with one of the EZSSDPServiceListener methods
 -(void)_notifyListenersOf:(NSString*)notificationName withData:(id)data;

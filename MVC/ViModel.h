@@ -7,24 +7,19 @@
 //
 
 #import "ViBase.h"
-#import "ViController.h"
-
-@class ViController;
 
 @interface ViModel : ViBase {
     
     @protected
     
     //We don't own the controller
-    ViController* __weak _controller;
+    UIViewController* __weak _controller;
     
 }
 
 //Readonly access to controller
-@property (readonly) ViController* controller;
+@property (readonly) UIViewController* controller;
 
-- (BOOL)registerController:(ViController*)controller;
-
-- (void)_notifyController;
+- (BOOL)registerController:(UIViewController*)controller;
 
 @end

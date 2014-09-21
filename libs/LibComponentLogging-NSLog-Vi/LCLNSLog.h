@@ -84,8 +84,8 @@
 // A very simple logger, which redirects to NSLog().
 #define _lcl_logger(_component, _level, _format, ...) {                        \
     _lcl_logger_autoreleasepool_begin                                          \
-    NSLog(@"%s %s:%@:%d:%s " _format,                                          \
-          _lcl_level_header_1[_level],                                         \
+    NSLog(@"\n*** %s *** %s:%@:%d:\n%s\n\n" _format @"\n\n\n",                                     \
+          _lcl_level_header[_level],                                           \
           _lcl_component_header[_component],                                   \
           [@__FILE__ lastPathComponent],                                       \
           __LINE__,                                                            \

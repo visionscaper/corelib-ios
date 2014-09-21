@@ -17,24 +17,33 @@
         _LOG_ERROR(@"Unable to find notification method %@, will not notify listeners", notificationName);
         return;
     }
-    
-    IMP imp                     = nil;
-    void (*func)(id, SEL, id)   = NULL;
-    BOOL errorOccurred          = NO;
-    for (int i = 0; i < [_listeners count]; i++) {
-        if ([_listeners[i] respondsToSelector:notificationMethod]) {
-            imp     = [_listeners[i] methodForSelector:notificationMethod];
-            func    = (void *)imp;
-            
-            func(_listeners[i], notificationMethod, data);
-        } else {
-            errorOccurred = YES;
+
+    //Dispatch such that notifer doesn't have to wait
+    NSArray* __weak theListeners = _listeners;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if (!theListeners) {
+            return;
         }
-    }
-    
-    if (errorOccurred) {
-        _LOG_ERROR(@"Notfication method %@ not available at the listeners", notificationName);
-    }
+        
+        IMP imp                     = nil;
+        void (*func)(id, SEL, id)   = NULL;
+        BOOL errorOccurred          = NO;
+        NSUInteger numListeners     = [theListeners count];
+        for (int i = 0; i < numListeners; i++) {
+            if ([theListeners[i] respondsToSelector:notificationMethod]) {
+                imp     = [theListeners[i] methodForSelector:notificationMethod];
+                func    = (void *)imp;
+                
+                func(theListeners[i], notificationMethod, data);
+            } else {
+                errorOccurred = YES;
+            }
+        }
+        
+        if (errorOccurred) {
+            _LOG_ERROR(@"Notfication method %@ not available at the listeners", notificationName);
+        }
+    });
 }
 
 @end

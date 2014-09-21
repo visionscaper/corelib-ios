@@ -7,12 +7,14 @@
 //
 
 #import "ViModel.h"
+#import "ViModel+Protected.h"
+#import "UIViewController+ModelInteraction.h"
 
 @implementation ViModel
 
 @synthesize controller = _controller;
 
-- (BOOL)registerController:(ViController*)controller {
+- (BOOL)registerController:(UIViewController*)controller {
     BOOL success = YES;
     
     if (controller) {
@@ -28,14 +30,5 @@
     
     return success;
 }
-
-- (void)_notifyController {
-    
-    if (_controller) {
-        [_controller modelUpdated];
-    }
-    
-}
-
 
 @end
